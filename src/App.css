@@ -1,0 +1,84 @@
+/* Định dạng toàn bộ trang */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Thiết kế trình phát nhạc */
+.music-player {
+  width: 320px;
+  background-color: #e2c8fe;
+  border-radius: 50px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
+  text-align: center;
+  position: relative;
+}
+
+.music-player .header-bar {
+  height: 64px;
+  background-color: #e9deee;
+  border-top-left-radius: 50px; /* Bo tròn góc trái */
+  border-top-right-radius: 50px; /* Bo tròn góc phải */
+}
+
+.track-list {
+  padding: 16px;
+}
+
+.track-card {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.track-card .control-button {
+  color: #666;
+  display: flex;
+  align-items: center;
+}
+
+.track-card .control-button svg {
+  margin-right: 10px;
+}
+
+/* Điều khiển phát nhạc */
+.player-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 64px;
+  background-color: #e9deee;
+  border-bottom-left-radius: 50px; /* Bo tròn góc trái */
+  border-bottom-right-radius: 50px; /* Bo tròn góc phải */
+}
+
+.player-controls .control-button {
+  color: #fff;
+}
+
+.player-controls .play-btn {
+  color: #6200ea;
+  font-size: 48px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+/* Bản quyền */
+.legal-text {
+  color: #facc15;
+  margin-top: 50px;
+  font-size: 14px;
+  text-align: center;
+}

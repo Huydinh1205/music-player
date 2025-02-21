@@ -1,58 +1,35 @@
-import { Box, Card, CardContent, IconButton, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import "./App.css";
-import PauseCircleIcon from "@mui/icons-material/PauseCircle";
-import PlayCircleIcon from "@mui/icons-material/PlayCircle";
-import SkipNextIcon from "@mui/icons-material/SkipNext";
-import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
-import { useRef } from "react";
-let songs = [{ id: 1, title: "Dance Monkey", artist: "Tones and I" }];
 
+import React, { useState } from "react";
+import track1 from "./tracks/track_1.mp3";
+import track2 from "./tracks/track_2.mp3";
+import track3 from "./tracks/track_3.mp3";
+import MusicPlayer from "./components/MusicPlayer";
+export const MusicPlayerContext = React.createContext();
+const defaultState = {
+  audioPlayer: new Audio(),
+  songs: [
+    { id: 0, title: "Ghe moi", artist: "B ray", file: track1 },
+    { id: 1, title: "Anh van luon nhu vay", artist: "B ray", file: track2 },
+    { id: 2, title: "Calling me", artist: "B ray", file: track3 },
+  ],
+  currentSongIndex: -1,
+  isPlaying: false,
+};
 function App() {
-  const audioRef = useRef(null);
+  const [state, setState] = useState(defaultState);
   return (
-    <Box>
-      <Box className="music-player">
-        <Box className="header-bar" />
-        <Box className="track-list">
-          {songs.map((song) => (
-            <Card
-              key={song.id}
-              className="track-card"
-              onClick={() => {
-                console.log(audioRef);
-                audioRef.current.play();
-              }}
-            >
-              <audio ref={audioRef} src="/happy-birthday-254480.mp3"></audio>
-              <CardContent className="control-button">
-                <IconButton color="default">
-                  <PauseCircleIcon />
-                </IconButton>
-                <Typography variant="body1">
-                  {song.title} - {song.artist}
-                </Typography>
-              </CardContent>
-            </Card>
-          ))}
-        </Box>
-        <Box className="player-controls">
-          <IconButton>
-            <SkipPreviousIcon />
-          </IconButton>
-          <IconButton color="primary">
-            <PlayCircleIcon fontSize="large" />
-          </IconButton>
-          <IconButton>
-            <SkipNextIcon />
-          </IconButton>
+    <MusicPlayerContext.Provider value={{ state, setState }}>
+      <Box>
+        <MusicPlayer />
+        <Box sx={{ marginTop: "50px" }}>
+          <Typography className="legal-text">
+            Copyright © CoderSchool | 2025
+          </Typography>
         </Box>
       </Box>
-      <Box sx={{ marginTop: "50px" }}>
-        <Typography className="legal-text">
-          Copyright © CoderSchool | 2025
-        </Typography>
-      </Box>
-    </Box>
+    </MusicPlayerContext.Provider>
   );
 }
 

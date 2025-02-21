@@ -25,6 +25,9 @@ body {
   background-color: #e9deee;
   border-top-left-radius: 50px; /* Bo tròn góc trái */
   border-top-right-radius: 50px; /* Bo tròn góc phải */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .track-list {
@@ -40,7 +43,10 @@ body {
   margin-bottom: 10px;
   justify-content: center;
 }
-
+.track-card:hover {
+  background: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+}
 .track-card .control-button {
   color: #666;
   display: flex;
@@ -81,4 +87,19 @@ body {
   margin-top: 50px;
   font-size: 14px;
   text-align: center;
+}
+
+.marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 8s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
